@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import dataInput from '../data/data.json';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'deloitte-angular-kata';
+  title = 'Deloitte Angular Kata';
+  data = dataInput;
 }
