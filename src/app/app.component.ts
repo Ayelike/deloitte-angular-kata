@@ -7,6 +7,16 @@ import dataInput from '../data/data.json';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Deloitte Angular Kata';
-  data = dataInput;
+  title: string = 'Deloitte Angular Kata';
+  data: object = dataInput;
+
+  dataChange(newData: object) {
+    this.data.groups[newData.group].forEach((item, index) => {
+      if (index === 0) {
+        this.data.items[item] = newData.value;
+      } else {
+        this.data.items[item] = 0;
+      }
+    });
+  }
 }

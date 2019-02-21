@@ -1,4 +1,7 @@
 <div>
   <h1>{{title}}</h1>
-  <app-group-totals [data]=data></app-group-totals>
+  <app-group-totals [data]=data (dataChange)="dataChange($event)"></app-group-totals>
+  <div *ngFor="let item of data.items | keyvalue">
+    <p>{{item.key}} : {{item.value}}</p>
+  </div>
 </div>

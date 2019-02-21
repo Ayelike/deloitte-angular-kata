@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-group-totals',
@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class GroupTotalsComponent implements OnInit {
 
   @Input() data: object; //get data from parent
+  @Output() dataChange = new EventEmitter<object>(); //declare output as object
   groups: string[] = []; //declare groups string array
   formInputs: object = {}; //declare form input object
 
@@ -31,9 +32,10 @@ export class GroupTotalsComponent implements OnInit {
   }
 
   valueChange(event: any) {
-    console.log(event.target.dataset.key);
-    console.log(event.target.value);
-    
+    this.dataChange.emit({
+      group: event.target.dataset.key,
+      value: event.target.value,
+    }); //send new values to parent
   }
 
 }
