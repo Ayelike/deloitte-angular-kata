@@ -9,7 +9,7 @@
       "chocolate": 4
     },
     "groups": {
-      "stationery": ["pens", "sharpeners", "pencils", "hens"],
+      "stationery": ["pens", "sharpeners", "pencils"],
       "food": ["fish", "chicken", "veg", "chocolate"]
     }
   }

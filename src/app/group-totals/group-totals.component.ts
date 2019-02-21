@@ -1,4 +1,17 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
+
+class formItem {
+  key: string
+  value: number
+  error: boolean
+
+  constructor(key: string, value: number, error: boolean) {
+    this.key = key;
+    this.value = value;
+    this.error = error;
+  }
+}
 
 @Component({
   selector: 'app-group-totals',
@@ -10,7 +23,7 @@ export class GroupTotalsComponent implements OnInit {
   @Input() data: object; //get data from parent
   @Output() dataChange = new EventEmitter<object>(); //declare output as object
   groups: string[] = []; //declare groups string array
-  formInputs: object = {}; //declare form input object
+  formItems: Array<formItem> = []; //declare form items as an array of form item objects
 
   constructor() {
   }
@@ -26,16 +39,32 @@ export class GroupTotalsComponent implements OnInit {
           groupTotal += this.data.items[item]; //add value of matching item to item count
         }
       });
-
-      this.formInputs[group] = groupTotal; //store group total in form input object
+      
+      this.formItems.push({
+        key: group,
+        value: groupTotal,
+        error: false,
+      }); //push new form item into form items array
     });
   }
 
   valueChange(event: any) {
-    this.dataChange.emit({
-      group: event.target.dataset.key,
-      value: event.target.value,
-    }); //send new values to parent
-  }
+    const key = event.target.dataset.key;
+    const value = parseInt(event.target.value);
 
+    this.formItems.forEach((item) => { //loop form inputs
+      if (item.key === key) { //if key matches changed input
+        if (isNaN(value) || value < 0 || value > 999) { //validate value
+          item.error = true; //show error message
+        } else {
+          item.error = false; //hide error message
+
+          this.dataChange.emit({
+            group: key,
+            value: value,
+          }); //send new values to parent
+        }
+      }
+    });
+  }
 }
