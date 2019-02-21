@@ -7,15 +7,15 @@ import dataInput from '../data/data.json';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title: string = 'Deloitte Angular Kata';
-  data: object = dataInput;
+  title: string = 'Deloitte Angular Kata'; //set title
+  data: object = dataInput; //get initial data from json
 
   dataChange(newData: object) {
-    this.data.groups[newData.group].forEach((item, index) => {
-      if (index === 0) {
-        this.data.items[item] = newData.value;
+    this.data.groups[newData.group].forEach((item, index) => { //loop group items
+      if (index === 0) { //if it's the first item in the group
+        this.data.items[item] = newData.value; //set item value to new value
       } else {
-        this.data.items[item] = 0;
+        this.data.items[item] = 0; //set item to zero
       }
     });
   }

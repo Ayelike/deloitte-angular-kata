@@ -1,0 +1,13 @@
+@import '../variables.scss';
+
+.app {
+    margin: 0 auto;
+    max-width: 600px;
+    padding: $u-spacing;
+
+    &__data {
+        border: 1px solid $c-grey;
+        margin-top: $u-spacing;
+        padding: $u-spacing;
+    }
+}

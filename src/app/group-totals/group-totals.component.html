@@ -1,5 +1,12 @@
-<h2>Groups</h2>
-<div *ngFor="let group of formInputs | keyvalue">
-  <label for="input_{{group.key}}">{{group.key}}</label>
-  <input (change)="valueChange($event)" [attr.data-key]="group.key" id="input_{{group.key}}" max="999" min="0" type="number" value={{group.value}} />
+<div class="app-group-totals">
+  <h2>Groups</h2>
+  <form>
+    <fieldset>
+      <legend>Group totals</legend>
+      <div *ngFor="let group of formInputs | keyvalue" class="app-group-totals__form-row">
+        <label for="input_{{group.key}}">{{group.key}}</label>
+        <input (change)="valueChange($event)" [attr.data-key]="group.key" id="input_{{group.key}}" max="999" min="0" type="number" value={{group.value}} />
+      </div>
+    </fieldset>
+  </form>
 </div>

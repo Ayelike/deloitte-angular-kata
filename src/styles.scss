@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+@import './variables.scss';
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0 0 $u-spacing;
+}
+
+legend {
+    margin-bottom: $u-spacing;
+}
+
+p,
+label {
+    margin: 0 0 ($u-spacing / 2);
+    text-transform: capitalize;
+}
+
+input[type="number"] {
+    font-size: 16px;
+    min-width: 120px;
+}

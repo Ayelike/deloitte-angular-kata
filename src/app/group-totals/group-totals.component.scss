@@ -1,0 +1,10 @@
+@import '../../variables.scss';
+
+.app-group-totals {
+    &__form-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: $u-spacing;
+    }
+}
