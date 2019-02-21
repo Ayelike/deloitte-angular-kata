@@ -6,9 +6,9 @@
       <div *ngFor="let group of formItems" class="app-group-totals__form-row">
         <div class="app-group-totals__form-row__group">
           <label for="input_{{group.key}}">{{group.key}}</label>
-          <input (change)="valueChange($event)" [attr.data-key]="group.key" ngClass="{{!group.error ? 'app-group-totals__input' : 'app-group-totals__input app-group-totals__input--error'}}" id="input_{{group.key}}" max="999" min="0" type="number" value={{group.value}} />
+          <input (change)="valueChange($event)" [attr.data-key]="group.key" ngClass="{{!group.error ? 'app-group-totals__input' : 'app-group-totals__input app-group-totals__input--error'}}" id="input_{{group.key}}" max="1000" min="0" type="number" value={{group.value}} />
         </div>
-        <span *ngIf="group.error" class="app-group-totals__error">Value must be a number between 0 and 999</span>
+        <span *ngIf="group.error" class="app-group-totals__error">Value must be a number between 0 and 1000</span>
       </div>
     </fieldset>
   </form>

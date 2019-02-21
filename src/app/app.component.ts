@@ -12,10 +12,12 @@ export class AppComponent {
 
   dataChange(newData: object) {
     this.data.groups[newData.group].forEach((item, index) => { //loop group items
-      if (index === 0) { //if it's the first item in the group
-        this.data.items[item] = newData.value; //set item value to new value
-      } else {
-        this.data.items[item] = 0; //set item to zero
+      if (this.data.items[item]) { //if item exists
+        if (index === 0) { //if it's the first item in the group
+          this.data.items[item] = newData.value; //set item value to new value
+        } else {
+          this.data.items[item] = 0; //set item to zero
+        }
       }
     });
   }

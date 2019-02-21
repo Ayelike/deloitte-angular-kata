@@ -54,7 +54,7 @@ export class GroupTotalsComponent implements OnInit {
 
     this.formItems.forEach((item) => { //loop form inputs
       if (item.key === key) { //if key matches changed input
-        if (isNaN(value) || value < 0 || value > 999) { //validate value
+        if (isNaN(value) || value < 0 || value > 1000 || value.toString() !== event.target.value) { //validate value
           item.error = true; //show error message
         } else {
           item.error = false; //hide error message
