@@ -1,7 +1,7 @@
-<div class="app">
+<div class="app-root">
   <h1>{{title}}</h1>
   <app-group-totals [data]=data (dataChange)="dataChange($event)"></app-group-totals>
-  <div class="app__data">
+  <div class="app-root__data">
     <h2>Data</h2>
     <div *ngFor="let item of data.items | keyvalue">
       <p>{{item.key}} : {{item.value}}</p>

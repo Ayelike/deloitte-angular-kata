@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import dataInput from '../data/data.json';
+import dataInput from './data/data.json';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +8,9 @@ import dataInput from '../data/data.json';
 })
 export class AppComponent {
   title: string = 'Deloitte Angular Kata'; //set title
-  data: object = dataInput; //get initial data from json
+  data: any = dataInput; //get initial data from json
 
-  dataChange(newData: object) {
+  dataChange(newData: { group: string, value: number }) {
     this.data.groups[newData.group].forEach((item, index) => { //loop group items
       if (this.data.items[item]) { //if item exists
         if (index === 0) { //if it's the first item in the group

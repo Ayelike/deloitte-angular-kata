@@ -2,15 +2,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 class formItem {
-  key: string
-  value: number
-  error: boolean
-
-  constructor(key: string, value: number, error: boolean) {
-    this.key = key;
-    this.value = value;
-    this.error = error;
-  }
+  key: string;
+  value: number;
+  error: boolean;
 }
 
 @Component({
@@ -20,13 +14,10 @@ class formItem {
 })
 export class GroupTotalsComponent implements OnInit {
 
-  @Input() data: object; //get data from parent
+  @Input() data: any; //get data from parent
   @Output() dataChange = new EventEmitter<object>(); //declare output as object
   groups: string[] = []; //declare groups string array
   formItems: Array<formItem> = []; //declare form items as an array of form item objects
-
-  constructor() {
-  }
 
   ngOnInit() {
     this.groups = Object.keys(this.data['groups']); //get array of group keys from data
